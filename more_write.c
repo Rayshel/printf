@@ -15,7 +15,6 @@
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
 {
-       	/* char is stored at left and paddind at buffer's right */
 	int i = 0;
 	char padd = ' ';
 
@@ -153,7 +152,7 @@ int write_unsgnd(int is_negative, int ind,
 	char padd = ' ';
 
 	UNUSED(is_negative);
-	UNUSED(size);	
+	UNUSED(size);
 	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		return (0); /* printf(".0d", 0)  no char is printed */
 	if (precision > 0 && precision < length)
@@ -178,7 +177,7 @@ int write_unsgnd(int is_negative, int ind,
 		{
 			return (write(1, &buffer[0], i) + write(1, &buffer[ind], length));
 		}
-	}	
+	}
 	return (write(1, &buffer[ind], length));
 }
 
